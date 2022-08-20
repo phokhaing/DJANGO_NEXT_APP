@@ -1,0 +1,34 @@
+{
+  "name": "next_app",
+  "version": "0.1.0",
+  "proxy": "http://localhost:8000/api/",
+  "private": true,
+  "scripts": {
+    "dev": "next dev",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint"
+  },
+  "dependencies": {
+    "@hookform/resolvers": "^2.9.7",
+    "@reduxjs/toolkit": "^1.8.4",
+    "@sweetalert2/themes": "^5.0.11",
+    "axios": "^0.27.2",
+    "bootstrap": "^5.2.0",
+    "dayjs": "^1.11.5",
+    "jwt-decode": "^3.1.2",
+    "next": "12.2.5",
+    "next-redux-wrapper": "^7.0.5",
+    "react": "18.2.0",
+    "react-dom": "18.2.0",
+    "react-hook-form": "^7.34.1",
+    "react-redux": "^8.0.2",
+    "redux": "^4.2.0",
+    "sweetalert2": "^11.4.26",
+    "yup": "^0.32.11"
+  },
+  "devDependencies": {
+    "eslint": "8.22.0",
+    "eslint-config-next": "12.2.5"
+  }
+}
