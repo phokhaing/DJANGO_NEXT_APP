@@ -150,7 +150,7 @@ DATABASES = {
       'NAME'    : 'django_app',
       'USER'    : 'postgres',
       'PASSWORD': 'postgres',
-      'HOST'    : 'postgres',
+      'HOST'    : 'django_app_postgres',
       'PORT'    : '5432',
    }
 }

@@ -11,4 +11,4 @@ class UserAdmin(admin.ModelAdmin):
         'email',
         'is_active'
     ]
-    # list_display_links = ['staff_id', 'fullname', 'email']
+    list_display_links = ['staff_id', 'fullname']

@@ -5,24 +5,24 @@ services:
     image: django_app
     container_name: django_app
     ports:
-      - "8000:8000" # "local_port:default_image_port"
+      - "8001:8001" # "local_port:default_image_port"
     volumes:
       - .:/django_app #current_dir:default_image_dir
-    # command: python3 manage.py runserver 0.0.0.0:8000
+    # command: python3 manage.py runserver 0.0.0.0:8001
     environment:
       - POSTGRES_NAME=django_app
       - POSTGRES_USER=postgres
       - POSTGRES_PASSWORD=postgres
     links:
-      - postgres
+      - django_app_postgres
     depends_on:
-      - postgres
+      - django_app_postgres
     networks:
       django_app_network:
-        ipv4_address: 192.168.0.2
+        ipv4_address: 192.168.1.2
 
-  postgres:
-    container_name: django_postgres
+  django_app_postgres:
+    container_name: django_app_postgres
     image: postgres
     environment:
       POSTGRES_DB: django_app
@@ -32,15 +32,15 @@ services:
     volumes:
       - postgres:/data/postgres
     ports:
-      - "5432:5432"
+      - "5433:5432"
     restart: unless-stopped
     networks:
       django_app_network:
-        ipv4_address: 192.168.0.3
+        ipv4_address: 192.168.1.3
 
-  pgadmin:
+  django_app_pgadmin:
     image: dpage/pgadmin4
-    container_name: django_pgadmin
+    container_name: django_app_pgadmin
     environment:
       PGADMIN_DEFAULT_EMAIL: khaing.pho1991@gmail.com
       PGADMIN_DEFAULT_PASSWORD: pgadmin
@@ -48,11 +48,11 @@ services:
     volumes:
       - ./docker_data/pgadmin:/var/lib/pgadmin
     ports:
-      - "5050:80"
+      - "5051:80"
     restart: unless-stopped
     networks:
       django_app_network:
-        ipv4_address: 192.168.0.4
+        ipv4_address: 192.168.1.4
 
   # MySql
   #    image: mysql:5.7
@@ -89,6 +89,6 @@ networks:
     driver: bridge
     ipam:
       config:
-        - subnet: 192.168.0.0/24 # from 192.168.0.(0-255)
-          gateway: 192.168.0.1
+        - subnet: 192.168.1.0/24 # from 192.168.0.(0-255)
+          gateway: 192.168.1.1
 

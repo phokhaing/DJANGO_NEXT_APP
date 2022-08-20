@@ -6,18 +6,19 @@ import { useEffect } from "react";
 // const tokenkey =
 // "eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYwMjcyOTU1LCJpYXQiOjE2NjAyNzI2NTUsImp0aSI6IjM4NzY3MWNjYzBjYjQzMzhhOWMxMzUyYWVlYmYyZTE1IiwidXNlcl9pZCI6MX0.B_O8cy-7RnfoH_R3fw4oDYeLkDaXxgY91haOArKS9js";
 
-const baseURL = process.env.API_URL;
+// const baseURL = process.env.API_URL;
 // let authTokens =
 //   localStorage && localStorage.getItem("authTokens")
 //     ? localStorage.getItem("authTokens")
 //     : null;
 
 const apiService = axios.create({
-  baseURL: process.env.API_URL,
+  // baseURL: process.env.API_URL,
+  baseURL: 'http://localhost:8000/api/',
   headers: {
-    Authorization: localStorage.getItem("access_token")
-      ? "Bearer " + localStorage.getItem("access_token")
-      : null,
+    // Authorization: localStorage.getItem("access_token")
+    //   ? "Bearer " + localStorage.getItem("access_token")
+    //   : null,
     "Content-Type": "application/json",
     accept: "application/json",
   },
