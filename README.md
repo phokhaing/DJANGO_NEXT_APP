@@ -5,9 +5,9 @@ DOCUMENT TO SETUP PROJECT:
 ------------------------------------
 
 Noted: 
-   - # python manage.py inspectdb > models.py : Auto generate Models from existing Database and table
-   - # python manage.py dbshell : for test db connection
-   - # python manage.py migrate --fake-initial : skips the migrations where the tables are already exist
+   - python manage.py inspectdb > models.py : Auto generate Models from existing Database and table
+   - python manage.py dbshell : for test db connection
+   - python manage.py migrate --fake-initial : skips the migrations where the tables are already exist
 
 I. Setup environment:
    - pip3 install virtualenv: install virtualenv via cmd administrator
