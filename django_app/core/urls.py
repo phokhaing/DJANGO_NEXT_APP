@@ -33,6 +33,10 @@ from rest_framework_simplejwt.views import (
 # router = DefaultRouter()
 # router.register('', api_urls)
 
+admin.site.site_header = 'FTB API Document'# default: "Django Administration"
+# admin.site.index_title = 'Features area' # default: "Site administration"
+admin.site.site_title = 'FTB API' # default: "Django site admin"
+
 urlpatterns = [
    path('admin/', admin.site.urls),
    

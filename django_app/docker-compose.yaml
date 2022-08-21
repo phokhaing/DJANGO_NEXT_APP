@@ -1,4 +1,4 @@
-version: '3.8'
+version: "3.8"
 services:
   django:
     build: .
@@ -44,7 +44,7 @@ services:
     environment:
       PGADMIN_DEFAULT_EMAIL: khaing.pho1991@gmail.com
       PGADMIN_DEFAULT_PASSWORD: pgadmin
-      PGADMIN_CONFIG_SERVER_MODE: 'False'
+      PGADMIN_CONFIG_SERVER_MODE: "False"
     volumes:
       - ./docker_data/pgadmin:/var/lib/pgadmin
     ports:
@@ -91,4 +91,3 @@ networks:
       config:
         - subnet: 192.168.1.0/24 # from 192.168.0.(0-255)
           gateway: 192.168.1.1
-

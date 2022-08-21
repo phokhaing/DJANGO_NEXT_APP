@@ -13,6 +13,7 @@ import apiService from "../apiService";
 export const authLogin = createAsyncThunk(
   "auth/authLogin",
   async (credentials, { rejectWithValue }) => {
+    console.log(apiService);
     try {
       const res = await apiService.post("auth/token/", credentials);
       localStorage.setItem("authTokens", JSON.stringify(res.data));
@@ -44,6 +45,14 @@ export const authSlice = createSlice({
     loading: false,
     isAuthenticated: false,
     errors: false,
+  },
+
+  reducers: {
+    setAuth: (state, { payload }) => {
+      state.loading = false;
+      state.isAuthenticated = true;
+      state.auth = payload;
+    },
   },
 
   extraReducers: {
@@ -86,4 +95,5 @@ export const authSlice = createSlice({
 
 export const token = (state) => state.auth;
 export const auth = (state) => state.auth;
+export const { setAuth } = authSlice.actions;
 export default authSlice.reducer;

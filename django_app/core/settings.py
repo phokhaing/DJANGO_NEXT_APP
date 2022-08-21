@@ -201,11 +201,11 @@ DEFAULT_AUTO_FIELD = 'django.db.models.BigAutoField'
 # Allow client site access api
 # ref: https://github.com/adamchainz/django-cors-headers#configuration 
 CORS_ALLOW_ALL_ORIGINS = True
-CORS_ALLOWED_ORIGINS = [
-   'http://localhost:3000', # next js
-   'http://127.0.0.1:8000',
-   'http://127.0.0.1:3000'
-]
+# CORS_ALLOWED_ORIGINS = [
+#    'http://localhost:3000', # next js
+#    'http://127.0.0.1:8000',
+#    'http://127.0.0.1:3000'
+# ]
 
 ACCOUNT_EMAIL_VERIFICATION = 'none'
 # ACCOUNT_AUTHENTICATION_METHOD (=”username” | “email” | “username_email”)

@@ -1,0 +1,13 @@
+version: '3'
+services:
+  frontend:
+    # build:
+    #   context: ./my-app
+    build: .
+    ports:
+      - "3000:3000" # port_run_on_browser:default port
+    container_name: next_app
+    # stdin_open: true
+    volumes:
+      - ./docker_data:.
+      - /next_app/node_modules
