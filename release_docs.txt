@@ -1,0 +1,4 @@
+# Release version(v1)
+
+- This is a full stack projects backend(Django rest frameworks) and Frontend (Next js)
+- It is a real project that using and developing 

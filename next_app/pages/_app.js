@@ -1,16 +1,20 @@
 import Layout from "../components/layout/Layout";
 import { wrapper } from "../services/store";
 import { useSelector } from "react-redux";
-import { auth } from "../services/auth/authSlice";
+import { auth, setAuth } from "../services/auth/authSlice";
 import { useEffect } from "react";
 import { useRouter } from "next/router";
-// import { RouteGuard } from "../components/RouteGuard";
 
 function App({ Component, pageProps }) {
   const { isAuthenticated } = useSelector(auth);
   const router = useRouter();
 
   useEffect(() => {
+    const authTokens = JSON.parse(localStorage.getItem("authTokens"));
+    if (authTokens) {
+      setAuth(authTokens);
+    }
+
     // on initial load - run auth check
     let url = router.asPath;
     const publicPaths = ["/account/login"];

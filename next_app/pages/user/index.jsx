@@ -225,6 +225,7 @@ const listUsers = () => {
 //     props: {
 //       users: data,
 //     },
+//     // revalidate: 5, // generate only 1 page in 5 seconds
 //   };
 // };
 
