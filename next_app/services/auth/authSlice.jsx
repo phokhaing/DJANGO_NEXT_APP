@@ -21,7 +21,7 @@ export const authLogin = createAsyncThunk(
       return res.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
-    }
+    } 
   }
 );
 
@@ -49,6 +49,7 @@ export const authSlice = createSlice({
 
   reducers: {
     setAuth: (state, { payload }) => {
+      console.log(payload);
       state.loading = false;
       state.isAuthenticated = true;
       state.auth = payload;

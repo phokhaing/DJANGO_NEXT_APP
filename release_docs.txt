@@ -1,0 +1,27 @@
+# Release version(v1)
+
+- This is a real full-stack project that using and developing with Backend (Django rest frameworks) and Frontend (Next js)
+- FTB Developer team are planning to upgrade the existing support_desk_system:
+   From: 
+      - Programming: PHP v7.4 up
+      - Framework: Codeigniter 2
+      - Database: MySQL 5.6
+      - Web server: Apache (Wampp)
+   
+   To:
+      + Backend API:
+         - Programming: Python v3.10 up
+         - Framework: Django Rest Framework API
+         - Database: Oracle or PostgreSQL
+
+      + Frontend (UI):
+         - Programming: Next JS
+      
+      + Docker containers:
+         - python 
+         - postgres
+         - pgadmin4
+
+      + Kubernetes (kubeadm) cluster:
+         - master node(1)
+         - workers node(2)

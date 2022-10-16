@@ -7,7 +7,7 @@ import { setAuth } from "./auth/authSlice";
 // const tokenKey =
 //   "Bearer eyJ0eXAiOiJKV1QiLCJhbGciOiJIUzI1NiJ9.eyJ0b2tlbl90eXBlIjoiYWNjZXNzIiwiZXhwIjoxNjYxMDc1NjEwLCJpYXQiOjE2NjEwNzUzMTAsImp0aSI6ImJhODE2NDU0OTc0YzQ5MmM4NDM2N2FiNWI4ZGQxOGVkIiwidXNlcl9pZCI6MX0.jmoj60PSKPEzvkgLo43vDQGNksFquutqcN_BU7c12Jgfgs";
 
-const baseURL = process.env.API_URL;
+const baseURL = process.env.NEXT_PUBLIC_API_URL;
 let authTokens =
   typeof window !== "undefined"
     ? JSON.parse(localStorage.getItem("authTokens"))
