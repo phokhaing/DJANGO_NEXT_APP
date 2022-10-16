@@ -37,6 +37,7 @@ const login = () => {
     dispatch(authLogin(credentials))
       .unwrap()
       .then((res) => {
+        console.log(res);
         router.push("/");
       })
       .catch((err) => {

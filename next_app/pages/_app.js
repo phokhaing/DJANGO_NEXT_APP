@@ -9,6 +9,8 @@ function App({ Component, pageProps }) {
   const { isAuthenticated } = useSelector(auth);
   const router = useRouter();
 
+  console.log(isAuthenticated);
+
   useEffect(() => {
     const authTokens = JSON.parse(localStorage.getItem("authTokens"));
     if (authTokens) {

@@ -4,33 +4,30 @@ import {
   isRejectedWithValue,
 } from "@reduxjs/toolkit";
 import axios from "axios";
-// import { authLogin, authTokenVerify } from "./authService";
 
-// import { createAsyncThunk } from "@reduxjs/toolkit";
-import apiService from "../apiService";
+import { authToken, authTokenVerify } from "./authService";
 
 // fetch all users
 export const authLogin = createAsyncThunk(
   "auth/authLogin",
   async (credentials, { rejectWithValue }) => {
-    console.log(apiService);
     try {
-      const res = await apiService.post("auth/token/", credentials);
+      const res = await authToken(credentials);
       localStorage.setItem("authTokens", JSON.stringify(res.data));
-
       return res.data;
     } catch (error) {
+      console.log(error.response.data);
       return rejectWithValue(error.response.data);
-    } 
+    }
   }
 );
 
 // find user by id
-export const authTokenVerify = createAsyncThunk(
+export const authVerify = createAsyncThunk(
   "auth/authTokenVerify",
   async ({ id }, { rejectWithValue }) => {
     try {
-      const response = await apiService.get(`auth/token/verify/${id}`);
+      const response = await authTokenVerify(id);
       return response.data;
     } catch (error) {
       return rejectWithValue(error.response.data);
@@ -49,7 +46,6 @@ export const authSlice = createSlice({
 
   reducers: {
     setAuth: (state, { payload }) => {
-      console.log(payload);
       state.loading = false;
       state.isAuthenticated = true;
       state.auth = payload;
@@ -66,6 +62,7 @@ export const authSlice = createSlice({
       };
     },
     [authLogin.fulfilled]: (state, { payload }) => {
+      console.log(payload);
       state.loading = false;
       state.isAuthenticated = true;
       state.auth = payload;
@@ -77,24 +74,23 @@ export const authSlice = createSlice({
     },
 
     // token verify
-    // [authTokenVerify.pending]: (state) => {
+    // [authVerify.pending]: (state) => {
     //   return {
     //     ...state,
     //     loading: true,
     //   };
     // },
-    // [authTokenVerify.fulfilled]: (state, { payload }) => {
+    // [authVerify.fulfilled]: (state, { payload }) => {
     //   state.loading = false;
     //   state.auth = payload;
     // },
-    // [authTokenVerify.rejected]: (state, { payload }) => {
+    // [authVerify.rejected]: (state, { payload }) => {
     //   state.loading = false;
     //   state.errors = payload;
     // },
   },
 });
 
-export const token = (state) => state.auth;
 export const auth = (state) => state.auth;
 export const { setAuth } = authSlice.actions;
 export default authSlice.reducer;
