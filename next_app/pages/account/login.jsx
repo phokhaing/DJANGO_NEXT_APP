@@ -58,11 +58,12 @@ const login = () => {
                 <div className="text-center w-75 m-auto">
                   <a href="index.html">
                     <span>
-                      <img
+                      {/* <img
                         src="/static/assets/images/logo-dark.png"
                         alt
                         height={22}
-                      />
+                      /> */}
+                      FTB BANK
                     </span>
                   </a>
                   <p className="text-muted mb-4 mt-3">

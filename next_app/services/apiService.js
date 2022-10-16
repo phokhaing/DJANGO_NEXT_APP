@@ -13,11 +13,13 @@ let authTokens =
     ? JSON.parse(localStorage.getItem("authTokens"))
     : null;
 
+console.log(authTokens);
+
 const apiService = axios.create({
   baseURL,
   headers: {
     Authorization: `${authTokens ? "Bearer" + authTokens.access : ""}`,
-    "Content-Type": "application/json",
+    'Content-Type': "application/json",
     accept: "application/json",
   },
 });
